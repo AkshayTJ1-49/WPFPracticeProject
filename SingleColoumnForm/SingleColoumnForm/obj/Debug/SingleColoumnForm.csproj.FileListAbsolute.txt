@@ -1,0 +1,15 @@
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\bin\Debug\SingleColoumnForm.exe.config
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\bin\Debug\SingleColoumnForm.exe
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\bin\Debug\SingleColoumnForm.pdb
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm.csprojAssemblyReference.cache
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\MainWindow.g.cs
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\App.g.cs
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm_MarkupCompile.cache
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm_MarkupCompile.lref
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\MainWindow.baml
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm.g.resources
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm.Properties.Resources.resources
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm.csproj.GenerateResource.cache
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm.csproj.CoreCompileInputs.cache
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm.exe
+D:\training\WPF\SingleColoumnForm\SingleColoumnForm\obj\Debug\SingleColoumnForm.pdb

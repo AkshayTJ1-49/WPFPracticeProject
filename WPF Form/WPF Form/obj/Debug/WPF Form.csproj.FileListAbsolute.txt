@@ -1,0 +1,15 @@
+D:\training\WPF\WPF Form\WPF Form\bin\Debug\WPF Form.exe.config
+D:\training\WPF\WPF Form\WPF Form\bin\Debug\WPF Form.exe
+D:\training\WPF\WPF Form\WPF Form\bin\Debug\WPF Form.pdb
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form.csprojAssemblyReference.cache
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\MainWindow.g.cs
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\App.g.cs
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form_MarkupCompile.cache
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form_MarkupCompile.lref
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\MainWindow.baml
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form.g.resources
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF_Form.Properties.Resources.resources
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form.csproj.GenerateResource.cache
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form.csproj.CoreCompileInputs.cache
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form.exe
+D:\training\WPF\WPF Form\WPF Form\obj\Debug\WPF Form.pdb
