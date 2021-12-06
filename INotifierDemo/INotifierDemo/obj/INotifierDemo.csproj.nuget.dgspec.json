@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\training\\WPF\\New folder\\WPFPracticeProject\\WpfCoreCalculator\\WpfCoreCalculator\\WpfCoreCalculator.csproj": {}
+    "D:\\training\\WPF\\MVVM\\INotifierDemo\\INotifierDemo\\INotifierDemo.csproj": {}
   },
   "projects": {
-    "D:\\training\\WPF\\New folder\\WPFPracticeProject\\WpfCoreCalculator\\WpfCoreCalculator\\WpfCoreCalculator.csproj": {
+    "D:\\training\\WPF\\MVVM\\INotifierDemo\\INotifierDemo\\INotifierDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\WpfCoreCalculator\\WpfCoreCalculator\\WpfCoreCalculator.csproj",
-        "projectName": "WpfCoreCalculator",
-        "projectPath": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\WpfCoreCalculator\\WpfCoreCalculator\\WpfCoreCalculator.csproj",
+        "projectUniqueName": "D:\\training\\WPF\\MVVM\\INotifierDemo\\INotifierDemo\\INotifierDemo.csproj",
+        "projectName": "INotifierDemo",
+        "projectPath": "D:\\training\\WPF\\MVVM\\INotifierDemo\\INotifierDemo\\INotifierDemo.csproj",
         "packagesPath": "C:\\Users\\akkib\\.nuget\\packages\\",
-        "outputPath": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\WpfCoreCalculator\\WpfCoreCalculator\\obj\\",
+        "outputPath": "D:\\training\\WPF\\MVVM\\INotifierDemo\\INotifierDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\akkib\\AppData\\Roaming\\NuGet\\NuGet.Config",
