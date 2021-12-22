@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S9SQxqDevFgpy+YGxIWaXijV7zxIGq38lLMtBfDWjKfkmbK4cVq0h1CaR2IpHIv8kTaWnC+g1g5prhuVWjN1iw==",
+  "dgSpecHash": "iIgqSqFxZMDoV3j/hnykjlVW7KLgDhj2MVlVmf8BSk+nbq8v9ylRan8rY7qA3gotIVGFRBfI7gtYKeXD2JexyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\akkib\\source\\repos\\ContactApp\\ContactApp\\ContactApp.csproj",
+  "projectFilePath": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\ContactApp\\ContactApp\\ContactApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\akkib\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
     "C:\\Users\\akkib\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",

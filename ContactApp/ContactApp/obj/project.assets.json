@@ -250,11 +250,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\akkib\\source\\repos\\ContactApp\\ContactApp\\ContactApp.csproj",
+      "projectUniqueName": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\ContactApp\\ContactApp\\ContactApp.csproj",
       "projectName": "ContactApp",
-      "projectPath": "C:\\Users\\akkib\\source\\repos\\ContactApp\\ContactApp\\ContactApp.csproj",
+      "projectPath": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\ContactApp\\ContactApp\\ContactApp.csproj",
       "packagesPath": "C:\\Users\\akkib\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\akkib\\source\\repos\\ContactApp\\ContactApp\\obj\\",
+      "outputPath": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\ContactApp\\ContactApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\akkib\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\akkib\source\repos\ContactApp\ContactApp\obj\Debug\netcoreapp3.1\
+D:\training\WPF\New folder\WPFPracticeProject\ContactApp\ContactApp\obj\Debug\netcoreapp3.1\
 ContactApp
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\akkib\source\repos\ContactApp\ContactApp\App.xaml
+D:\training\WPF\New folder\WPFPracticeProject\ContactApp\ContactApp\App.xaml
 41715188866
 
 9-621724377
 197-934116267
 ContactDetailsWindow.xaml;Controls\ContactControl.xaml;MainWindow.xaml;NewContactWindow.xaml;
 
-True
+False
 
