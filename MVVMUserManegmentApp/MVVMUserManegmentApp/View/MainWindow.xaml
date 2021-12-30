@@ -1,0 +1,59 @@
+﻿<Window x:Class="MVVMUserManegmentApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMUserManegmentApp"      
+        xmlns:vm="clr-namespace:MVVMUserManegmentApp.ViewModel"
+        xmlns:c="clr-namespace:MVVMUserManegmentApp.Converter"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:prism="http://prismlibrary.com"
+        mc:Ignorable="d"
+        Title="MainUserWindow" Height="450" Width="450">
+    <Window.Resources>
+        <vm:UserViewModel x:Key="vm"/>
+        <c:DateConverter x:Key="DateConverter"/>        
+    </Window.Resources>
+    
+    <Grid Background="WhiteSmoke" DataContext="{StaticResource vm}">
+        <StackPanel Margin="20">
+            <!--<TextBox Grid.Row="1" Width="200" Text="{Binding Query,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding SearchCommand}" Key="Tab"/>                    
+                    <KeyBinding Command="{Binding SearchCommand}" Key="Return"/>                                    
+                </TextBox.InputBindings>
+            </TextBox>-->
+
+            <!--<TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <Trigger Property="Focusable" Value="True">
+                                <Setter Property=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>-->
+
+            <TextBox Text="{Binding Query,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>   
+            
+            <!--<Button Content="Search" HorizontalAlignment="Center" Margin="5" Padding="5" Command="{Binding SearchCommand}" CommandParameter="{Binding Query}"></Button>-->
+            <Button HorizontalAlignment="Right" Background="Coral" Content="+Add User" Margin="0,5,5,5" FontSize="14" Padding="3" Command="{Binding OpenAddUserWindowCommand}"/>
+            <ListView ItemsSource="{Binding Users}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}" />
+                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding DOB,Converter={StaticResource DateConverter}}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>
