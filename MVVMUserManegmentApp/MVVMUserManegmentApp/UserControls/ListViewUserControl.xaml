@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="MVVMUserManegmentApp.UserControls.ListViewUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMUserManegmentApp.UserControls"
+             xmlns:cv="clr-namespace:MVVMUserManegmentApp.Converter"
+             xmlns:vm="clr-namespace:MVVMUserManegmentApp.ViewModel"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="450" >
+    
+    <!--resources start-->
+    <UserControl.Resources>
+        <cv:DateConverter x:Key="DateConverter"/>
+        <!--<vm:UserViewModel x:Key="VM"/>-->
+        <Style x:Key="searchBoxBorder" TargetType="Border">
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderBrush" Value="Gainsboro"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="Margin" Value="0,5,0,10"/>
+            <!--<Setter Property="Background" Value="white"/>-->
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Padding" Value="1.5"/>
+        </Style>
+        <Style x:Key="searchTextbox" TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="2,1,0,1"/>
+        </Style>
+       
+        <Style TargetType="ListViewItem">
+            <Setter Property="Foreground" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#344955"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="Orange"/>
+                </Trigger>               
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <!--resources end-->
+    <!--Grid start-->
+    <Grid >
+        <!--StackPanel-->
+        <StackPanel Margin="20" Background="#344955">
+            <Border Style="{StaticResource searchBoxBorder}">
+                <TextBox  Style="{StaticResource searchTextbox}"                      
+                         Text="{Binding Query,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Border>
+            <ListView ItemsSource="{Binding Path=Users}" 
+                      FontWeight="Bold" Background="#344955" FontFamily="Fonts/Dosis.ttf">
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}" />
+                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding DOB,Converter={StaticResource DateConverter}}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>            
+        </StackPanel>
+        <!--StackPanel end-->
+    </Grid>
+</UserControl>

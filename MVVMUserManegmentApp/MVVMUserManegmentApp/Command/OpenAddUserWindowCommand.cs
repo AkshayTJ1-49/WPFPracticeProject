@@ -41,7 +41,6 @@ namespace MVVMUserManegmentApp.Command
             NewUserWindow newUserWindow = new NewUserWindow();
             newUserWindow.ShowDialog();
             VM.Users = new ObservableCollection<User>(UserManegmentHelper.ReadDataBase());
-
         }
     }
 }

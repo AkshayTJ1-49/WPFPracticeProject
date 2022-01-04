@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\training\WPF\Assignment\MVVMUserManegmentApp\MVVMUserManegmentApp\obj\Debug\netcoreapp3.1\
+D:\training\WPF\New folder\WPFPracticeProject\MVVMUserManegmentApp\MVVMUserManegmentApp\obj\Debug\netcoreapp3.1\
 MVVMUserManegmentApp
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-D:\training\WPF\Assignment\MVVMUserManegmentApp\MVVMUserManegmentApp\App.xaml
-2-604232958
+D:\training\WPF\New folder\WPFPracticeProject\MVVMUserManegmentApp\MVVMUserManegmentApp\App.xaml
+3-1509561240
 
-141461638061
+15186796844
 203331916531
-View\MainWindow.xaml;View\NewUserWindow.xaml;
+UserControls\ListViewUserControl.xaml;View\MainWindow.xaml;View\NewUserWindow.xaml;
 
-True
+False
 

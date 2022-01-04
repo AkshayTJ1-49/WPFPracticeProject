@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\training\WPF\Assignment\MVVMUserManegmentApp\MVVMUserManegmentApp\App.xaml
-2-604232958
+3-1509561240
 
-12-1042059557
+131978066522
 203331916531
-View\MainWindow.xaml;View\NewUserWindow.xaml;
+UserControls\ListViewUserControl.xaml;View\MainWindow.xaml;View\NewUserWindow.xaml;
 
 False
 

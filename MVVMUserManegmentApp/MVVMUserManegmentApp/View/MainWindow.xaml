@@ -4,56 +4,71 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMUserManegmentApp"      
+        xmlns:uc="clr-namespace:MVVMUserManegmentApp.UserControls"
         xmlns:vm="clr-namespace:MVVMUserManegmentApp.ViewModel"
-        xmlns:c="clr-namespace:MVVMUserManegmentApp.Converter"
+        xmlns:cv="clr-namespace:MVVMUserManegmentApp.Converter"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:prism="http://prismlibrary.com"
         mc:Ignorable="d"
-        Title="MainUserWindow" Height="450" Width="450">
+        Title="Home"
+        Height="600" Width="450">
+    <!--resources start-->
+
     <Window.Resources>
         <vm:UserViewModel x:Key="vm"/>
-        <c:DateConverter x:Key="DateConverter"/>        
+        <cv:DateConverter x:Key="DateConverter"/>
+      
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Fonts/Dosis.ttf"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="LightGray"></Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Foreground" Value="DarkSlateGray"></Setter>
+                </Trigger>                
+            </Style.Triggers>
+        </Style>
+        
     </Window.Resources>
-    
-    <Grid Background="WhiteSmoke" DataContext="{StaticResource vm}">
-        <StackPanel Margin="20">
-            <!--<TextBox Grid.Row="1" Width="200" Text="{Binding Query,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-                <TextBox.InputBindings>
-                    <KeyBinding Command="{Binding SearchCommand}" Key="Tab"/>                    
-                    <KeyBinding Command="{Binding SearchCommand}" Key="Return"/>                                    
-                </TextBox.InputBindings>
-            </TextBox>-->
+    <!--resources end  Background="#344955"-->
 
-            <!--<TextBox.Style>
-                    <Style TargetType="TextBox">
-                        <Style.Triggers>
-                            <Trigger Property="Focusable" Value="True">
-                                <Setter Property=""/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>-->
-
-            <TextBox Text="{Binding Query,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="TextChanged">
-                        <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </TextBox>   
-            
-            <!--<Button Content="Search" HorizontalAlignment="Center" Margin="5" Padding="5" Command="{Binding SearchCommand}" CommandParameter="{Binding Query}"></Button>-->
-            <Button HorizontalAlignment="Right" Background="Coral" Content="+Add User" Margin="0,5,5,5" FontSize="14" Padding="3" Command="{Binding OpenAddUserWindowCommand}"/>
-            <ListView ItemsSource="{Binding Users}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
-                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
-                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}" />
-                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding DOB,Converter={StaticResource DateConverter}}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+    <Grid  DataContext="{StaticResource vm}" Background="#344955">
+      
+        <StackPanel Margin="20,40,20,0">
+            <!--<StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right">
+                <Image Source="Images/addicon.jpg" 
+                       Height="50" 
+                       Width="20">
+                </Image>
+            </StackPanel>-->
+            <!--<Border HorizontalAlignment="Right" 
+                    CornerRadius="10" 
+                    Width="100"
+                    Height="25"
+                    Margin="5" 
+                    BorderThickness="1" 
+                    BorderBrush="#FE6584" Background="#FE6584"></Border>-->
+            <Button Content="AddUser" 
+                        Command="{Binding OpenAddUserWindowCommand}"                       
+                        Background="#FE6584"                        
+                        FontSize="15" BorderThickness="0" HorizontalAlignment="Right" >
+            <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="100" 
+                                    Height="25" 
+                                    CornerRadius="10"
+                                    Margin="0,0,0,10"
+                                    Background="{TemplateBinding Background}">
+                             <ContentPresenter HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+            </Button>
+            <uc:ListViewUserControl/>
         </StackPanel>
     </Grid>
 </Window>
