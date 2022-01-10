@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMUserManegmentApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace MVVMUserManegmentApp.View
         public NewUserWindow()
         {
             InitializeComponent();
+            this.DataContext = new UserViewModel();
         }
 
         

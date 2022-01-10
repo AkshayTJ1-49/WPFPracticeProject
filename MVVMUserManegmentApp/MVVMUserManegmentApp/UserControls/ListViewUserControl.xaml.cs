@@ -22,7 +22,7 @@ namespace MVVMUserManegmentApp.UserControls
         public ListViewUserControl()
         {
             InitializeComponent();
-            this.DataContext = UserViewModel.GetUserViewModelinstance();
+            this.DataContext = new UserViewModel();
         }
     }
 }

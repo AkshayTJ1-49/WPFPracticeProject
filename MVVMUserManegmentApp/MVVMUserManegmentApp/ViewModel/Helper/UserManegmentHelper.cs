@@ -29,6 +29,8 @@ namespace MVVMUserManegmentApp.ViewModel.Helper
                 connection.CreateTable<User>();
                 connection.Insert(newUser);
             }
+            //UserViewModel vm=UserViewModel.GetUserViewModelinstance();
+            //vm.Users.Add(newUser);
         }
         public static List<User> Search(string query)
         {

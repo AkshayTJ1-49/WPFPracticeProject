@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:MVVMUserManegmentApp"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <!--<Style x:Key="Home" TargetType="{x:Type Window}">
+            <Setter Property="FontFamily"
+        Value="/Fonts/#Dosis"/>
+        </Style>-->
+
     </Application.Resources>
 </Application>

@@ -44,7 +44,7 @@ namespace MVVMUserManegmentApp.Command
                 Gender = VM.User.Gender
             };
             UserManegmentHelper.AddNewUser(user);
-            VM = new UserViewModel();
+            VM.Users = new ObservableCollection<User>(UserManegmentHelper.ReadDataBase());
             
         }
     }

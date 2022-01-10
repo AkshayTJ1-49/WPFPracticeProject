@@ -3,24 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVMUserManegmentApp"      
-        xmlns:uc="clr-namespace:MVVMUserManegmentApp.UserControls"
+        xmlns:local="clr-namespace:MVVMUserManegmentApp.UserControls"      
         xmlns:vm="clr-namespace:MVVMUserManegmentApp.ViewModel"
         xmlns:cv="clr-namespace:MVVMUserManegmentApp.Converter"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:prism="http://prismlibrary.com"
         mc:Ignorable="d"
         Title="Home"
-        Height="600" Width="450">
+        Height="600" Width="450" ><!--Style="{StaticResource Home}"-->
     <!--resources start-->
+    <!--xmlns:uc="clr-namespace:MVVMUserManegmentApp.UserControls"-->
+
 
     <Window.Resources>
-        <vm:UserViewModel x:Key="vm"/>
-        <cv:DateConverter x:Key="DateConverter"/>
-      
+        <!--<vm:UserViewModel x:Key="vm"/>-->
+        <cv:DateConverter x:Key="DateConverter"/>      
         <Style TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Fonts/Dosis.ttf"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            
+            <!--<Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Dosis"/>-->
+            
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="LightGray"></Setter>
@@ -30,31 +37,16 @@
                 </Trigger>                
             </Style.Triggers>
         </Style>
-        
+       
     </Window.Resources>
-    <!--resources end  Background="#344955"-->
+    <!--resources end  Background="#344955"  DataContext="{StaticResource vm}"-->
 
-    <Grid  DataContext="{StaticResource vm}" Background="#344955">
+    <Grid   Background="#344955">
       
-        <StackPanel Margin="20,40,20,0">
-            <!--<StackPanel Orientation="Horizontal" 
-                        HorizontalAlignment="Right">
-                <Image Source="Images/addicon.jpg" 
-                       Height="50" 
-                       Width="20">
-                </Image>
-            </StackPanel>-->
-            <!--<Border HorizontalAlignment="Right" 
-                    CornerRadius="10" 
-                    Width="100"
-                    Height="25"
-                    Margin="5" 
-                    BorderThickness="1" 
-                    BorderBrush="#FE6584" Background="#FE6584"></Border>-->
+        <StackPanel Margin="20,40,20,0">        
             <Button Content="AddUser" 
                         Command="{Binding OpenAddUserWindowCommand}"                       
-                        Background="#FE6584"                        
-                        FontSize="15" BorderThickness="0" HorizontalAlignment="Right" >
+                        Background="#FE6584">
             <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Width="100" 
@@ -68,7 +60,8 @@
                         </ControlTemplate>
                     </Button.Template>
             </Button>
-            <uc:ListViewUserControl/>
+            <local:ListViewUserControl/>
+
         </StackPanel>
     </Grid>
 </Window>

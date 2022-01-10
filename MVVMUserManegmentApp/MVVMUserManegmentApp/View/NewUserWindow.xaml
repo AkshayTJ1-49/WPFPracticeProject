@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMUserManegmentApp.View"
         xmlns:vm="clr-namespace:MVVMUserManegmentApp.ViewModel"
-        xmlns:c="clr-namespace:MVVMUserManegmentApp.Converter"
+        xmlns:c="clr-namespace:MVVMUserManegmentApp.Converter" xmlns:components="clr-namespace:MVVMUserManegmentApp.Components" d:DataContext="{d:DesignInstance Type=vm:UserViewModel}"
         mc:Ignorable="d"
         Title="NewUserWindow" Height="400" Width="600">
     
     <Window.Resources>        
-        <vm:UserViewModel x:Key="vm"/>
-        <c:GenderCoverter x:Key="GenderCoverter"/>     
+        <!--<vm:UserViewModel x:Key="vm"/>-->
+        <c:GenderCoverter x:Key="GenderCoverter"/>
+        <c:DateConverter x:Key="DateConverter"/>
         <Style TargetType="Border" x:Key="txtBoxBorder">
             <Setter Property="Margin" Value="5"/>            
             <Setter Property="BorderThickness" Value="2"/>
@@ -31,7 +32,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontWeight" Value="DemiBold"/>
+            <!--<Setter Property="FontWeight" Value="DemiBold"/>-->
             <Setter Property="Foreground" Value="White"/>
         </Style>
         <Style TargetType="RadioButton">
@@ -39,19 +40,21 @@
         </Style>
         <Style TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontSize" Value="15"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="LightGray"></Setter>
+                    <Setter Property="Foreground" Value="LightGray"/>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Foreground" Value="DarkSlateGray"></Setter>
+                    <Setter Property="Foreground" Value="DarkSlateGray"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
+    <!--DataContext="{StaticResource vm}"-->
 
-    
-    <Grid  DataContext="{StaticResource vm}" Background="#344955">    
+    <Grid   Background="#344955">    
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -68,63 +71,57 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <Label Content="First name" Grid.Column="1" Grid.Row="0"/>
         <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource txtBoxBorder}" >
-            <TextBox Text="{Binding User.FirstName,Mode=TwoWay}"/> 
-        </Border>      
-            
+            <TextBox Text="{Binding User.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/> 
+        </Border>            
         <Label Content="Last name" Grid.Row="1" Grid.Column="1"/>
         <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource txtBoxBorder}" >
-        <TextBox Text="{Binding User.LastName,Mode=TwoWay}"/>
+            <TextBox Text="{Binding User.LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Border>
-
-        <Label Content="Email" 
-               Grid.Row="2" Grid.Column="1" />
+        <Label Content="Email" Grid.Row="2" Grid.Column="1"/>
         <Border Grid.Row="2" Grid.Column="2"  Style="{StaticResource txtBoxBorder}" >
-            <TextBox Text="{Binding User.Email,Mode=TwoWay}"/>
-        </Border>
-        <Label Content="Password" 
-               Grid.Row="3" Grid.Column="1"/>
+            <TextBox Text="{Binding User.Email,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        </Border>        
+        <Label Content="Password" Grid.Row="3" Grid.Column="1"/>
         <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource txtBoxBorder}" >
-        <TextBox Text="{Binding User.Password,Mode=TwoWay}"/>
-        </Border>
-        <Label Content="Birth date" 
-               Grid.Row="4" Grid.Column="1"/>
+            <components:BindablePasswordBoxUserControl Password="{Binding User.Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        </Border>        
+        <Label Content="Birth date" Grid.Row="4" Grid.Column="1"/>
         <Border Style="{StaticResource txtBoxBorder}"  Margin="5" Width="250" Grid.Row="4" Grid.Column="2"  >
-        <DatePicker x:Name="dateOfBirth"
-                    BorderThickness="0"                                        
-                    SelectedDate="{Binding User.DOB,Mode=TwoWay}"/>
+            <DatePicker x:Name="dateOfBirth" BorderThickness="0" SelectedDate="{Binding User.DOB,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Border>
-        <Label Content="Gender" 
-               Grid.Row="5" Grid.Column="1"/>
-        <RadioButton Grid.Row="5" Grid.Column="2" 
-                     Content="Male" 
-                     Margin="0,5,0,0" 
-                     IsChecked="{Binding User.Gender,Converter={StaticResource ResourceKey=GenderCoverter},ConverterParameter=Male}" />
-        <RadioButton Grid.Column="2" Grid.Row="6" 
-                     Content="Female"
-                     Margin="0,0,0,5"  
-                     IsChecked="{Binding User.Gender,Converter={StaticResource ResourceKey=GenderCoverter},ConverterParameter=Female}" />
-        <Button Content="Add User"  
-                Grid.Row="7" Grid.Column="2" 
-                Background="#FE6584"
-                FontWeight="Medium"
-                FontSize="15"
-                Command="{Binding AddNewUserCommand}">
+        <Label Content="Gender" Grid.Row="5" Grid.Column="1"/>
+        <RadioButton Grid.Row="5" Grid.Column="2" Content="Male" Margin="0,5,0,0" IsChecked="{Binding User.Gender,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Converter={StaticResource ResourceKey=GenderCoverter},ConverterParameter=Male}" />
+        <RadioButton Grid.Column="2" Grid.Row="6" Content="Female" Margin="0,0,0,5" IsChecked="{Binding User.Gender,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Converter={StaticResource ResourceKey=GenderCoverter},ConverterParameter=Female}" />
+        <Button Content="Add User" Grid.Row="7" Grid.Column="2" Background="#FE6584" Command="{Binding AddNewUserCommand,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                         <Border Height="25" 
                                 CornerRadius="10" 
                                 Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" 
-                                           VerticalAlignment="Center"/>
+                                          VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
-
         </Button>
+
+        <!--<ListView Grid.Row="8" Grid.Column="2" ItemsSource="{Binding Users}" 
+                      Background="#344955" >
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}"/>
+                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding DOB,Converter={StaticResource DateConverter}}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>-->
+
 
     </Grid>
 </Window>

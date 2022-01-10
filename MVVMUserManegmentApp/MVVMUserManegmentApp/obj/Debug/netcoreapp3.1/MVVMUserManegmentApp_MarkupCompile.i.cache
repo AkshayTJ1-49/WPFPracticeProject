@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\training\WPF\New folder\WPFPracticeProject\MVVMUserManegmentApp\MVVMUserManegmentApp\App.xaml
-3-1509561240
+4-1529796827
 
-15186796844
+161942274460
 203331916531
-UserControls\ListViewUserControl.xaml;View\MainWindow.xaml;View\NewUserWindow.xaml;
+Components\BindablePasswordBoxUserControl.xaml;UserControls\ListViewUserControl.xaml;View\MainWindow.xaml;View\NewUserWindow.xaml;
 
-False
+True
 

@@ -9,6 +9,7 @@ using MVVMUserManegmentApp.Command;
 using MVVMUserManegmentApp.View;
 using System.Collections.ObjectModel;
 using MVVMUserManegmentApp.ViewModel.Helper;
+using Prism.Common;
 
 namespace MVVMUserManegmentApp.ViewModel
 {
@@ -20,11 +21,11 @@ namespace MVVMUserManegmentApp.ViewModel
             get { return query; }
             set { query = value; OnPropertyChanged("Query"); }
         }
-        private User user = new User();
+        private User user { get; set; }
         public User User
         {
             get { return user; }
-            set { user = value; //OnPropertyChanged("User"); 
+            set { user = value; OnPropertyChanged("User"); 
             }
         }
         public OpenAddUserWindowCommand OpenAddUserWindowCommand { get; set; }
@@ -51,11 +52,7 @@ namespace MVVMUserManegmentApp.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        private static UserViewModel _instance = null;
-        public static UserViewModel GetUserViewModelinstance()
-        {
-            if (_instance == null) return new UserViewModel();
-            return _instance;
-        }
+      
+
     }
 }
