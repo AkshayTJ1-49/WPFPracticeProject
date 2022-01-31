@@ -28,6 +28,7 @@ namespace MVVMUserManegmentApp.Command
         {
             VM = vm;
         }
+       
         public bool CanExecute(object parameter)
         {            
             return true;

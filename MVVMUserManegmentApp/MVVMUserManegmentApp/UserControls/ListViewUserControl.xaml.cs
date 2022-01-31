@@ -1,6 +1,10 @@
-﻿using MVVMUserManegmentApp.ViewModel;
+﻿using MVVMUserManegmentApp.Model;
+using MVVMUserManegmentApp.ViewModel;
+using MVVMUserManegmentApp.ViewModel.Helper;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,5 +28,7 @@ namespace MVVMUserManegmentApp.UserControls
             InitializeComponent();
             this.DataContext = new UserViewModel();
         }
+
+
     }
 }

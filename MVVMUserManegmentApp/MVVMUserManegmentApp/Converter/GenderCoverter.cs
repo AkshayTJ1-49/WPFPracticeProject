@@ -10,12 +10,21 @@ namespace MVVMUserManegmentApp.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((string)parameter == (string)value);
+            if (System.Convert.ToString(value).Equals(System.Convert.ToString(parameter)))
+            {
+                return true;
+            }
+            return false;
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return (bool)value ? parameter : null;
+        {          
+            if (System.Convert.ToBoolean(value))
+            {
+                return parameter;
+            }
+            return null;
         }
     }
 }

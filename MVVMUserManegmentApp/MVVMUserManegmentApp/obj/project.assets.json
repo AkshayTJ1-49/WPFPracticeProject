@@ -573,11 +573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\MVVMUserManegmentApp\\MVVMUserManegmentApp\\MVVMUserManegmentApp.csproj",
+      "projectUniqueName": "D:\\training\\WPF\\Assignment copy\\MVVMUserManegmentApp\\MVVMUserManegmentApp\\MVVMUserManegmentApp.csproj",
       "projectName": "MVVMUserManegmentApp",
-      "projectPath": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\MVVMUserManegmentApp\\MVVMUserManegmentApp\\MVVMUserManegmentApp.csproj",
+      "projectPath": "D:\\training\\WPF\\Assignment copy\\MVVMUserManegmentApp\\MVVMUserManegmentApp\\MVVMUserManegmentApp.csproj",
       "packagesPath": "C:\\Users\\akkib\\.nuget\\packages\\",
-      "outputPath": "D:\\training\\WPF\\New folder\\WPFPracticeProject\\MVVMUserManegmentApp\\MVVMUserManegmentApp\\obj\\",
+      "outputPath": "D:\\training\\WPF\\Assignment copy\\MVVMUserManegmentApp\\MVVMUserManegmentApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\akkib\\AppData\\Roaming\\NuGet\\NuGet.Config",

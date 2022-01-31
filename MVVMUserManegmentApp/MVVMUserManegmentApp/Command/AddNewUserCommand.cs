@@ -29,8 +29,15 @@ namespace MVVMUserManegmentApp.Command
             VM = vm;
         }
         public bool CanExecute(object parameter)
-        {            
-            return true;
+        {       
+            if (string.IsNullOrWhiteSpace(VM.User.FirstName)||string.IsNullOrWhiteSpace(VM.User.LastName) || string.IsNullOrWhiteSpace(VM.User.Email)|| string.IsNullOrEmpty(VM.User.Password)|| string.IsNullOrWhiteSpace(VM.User.Gender))
+            {
+                return false;
+            }            
+            else
+            {
+                return true;
+            }
         }
         public void Execute(object parameter)
         {
@@ -43,9 +50,8 @@ namespace MVVMUserManegmentApp.Command
                 DOB = VM.User.DOB,
                 Gender = VM.User.Gender
             };
-            UserManegmentHelper.AddNewUser(user);
-            VM.Users = new ObservableCollection<User>(UserManegmentHelper.ReadDataBase());
-            
+            UserManegmentHelper.AddNewUser(user);      
+
         }
     }
 }

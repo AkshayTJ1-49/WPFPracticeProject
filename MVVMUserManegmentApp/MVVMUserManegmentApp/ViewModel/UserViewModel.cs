@@ -25,7 +25,7 @@ namespace MVVMUserManegmentApp.ViewModel
         public User User
         {
             get { return user; }
-            set { user = value; OnPropertyChanged("User"); 
+            set { user = value; OnPropertyChanged(nameof(User)); 
             }
         }
         public OpenAddUserWindowCommand OpenAddUserWindowCommand { get; set; }
@@ -34,12 +34,13 @@ namespace MVVMUserManegmentApp.ViewModel
         private ObservableCollection<User> users;
         public ObservableCollection<User> Users
         {
-            get { return users; }
-            set { users = value; OnPropertyChanged("Users"); }
+             get { return users; }
+             set { users = value; OnPropertyChanged(nameof(Users)); }
         }
+
         public UserViewModel()
         {
-            List<User> usersList = UserManegmentHelper.ReadDataBase();
+            List<User> usersList = UserManegmentHelper.ReadDataBase();           
             Users = new ObservableCollection<User>(usersList);
             User = new User();
             OpenAddUserWindowCommand = new OpenAddUserWindowCommand(this);
@@ -50,9 +51,8 @@ namespace MVVMUserManegmentApp.ViewModel
         private void OnPropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
+        }     
 
-      
 
     }
 }

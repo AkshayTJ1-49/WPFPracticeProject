@@ -16,7 +16,7 @@
 
 
     <Window.Resources>
-        <!--<vm:UserViewModel x:Key="vm"/>-->
+        <vm:UserViewModel x:Key="vm"/>
         <cv:DateConverter x:Key="DateConverter"/>      
         <Style TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
@@ -46,7 +46,7 @@
         <StackPanel Margin="20,40,20,0">        
             <Button Content="AddUser" 
                         Command="{Binding OpenAddUserWindowCommand}"                       
-                        Background="#FE6584">
+                        Background="#FE6584" FontFamily="/Fonts/#Oswald-VariableFont_wght">
             <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Width="100" 
@@ -62,6 +62,17 @@
             </Button>
             <local:ListViewUserControl/>
 
+            <!--<ListView ItemsSource="{Binding Users}" 
+                      Background="#344955" >
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}"/>
+                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding DOB,Converter={StaticResource DateConverter}}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>-->
         </StackPanel>
     </Grid>
 </Window>

@@ -25,15 +25,14 @@ namespace MVVMUserManegmentApp.Command
                 CommandManager.RequerySuggested -= value;
             }
         }
-        #region
         public OpenAddUserWindowCommand(UserViewModel vm)
         {
             VM = vm;
-        }
-        #endregion
+        }        
 
         public bool CanExecute(object parameter)
         {
+            
             return true;
         }        
         public void Execute(object parameter)

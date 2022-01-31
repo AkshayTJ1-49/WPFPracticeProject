@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:MVVMUserManegmentApp.UserControls"
              xmlns:cv="clr-namespace:MVVMUserManegmentApp.Converter"
              xmlns:vm="clr-namespace:MVVMUserManegmentApp.ViewModel"
+             
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="450"  >
@@ -13,7 +14,9 @@
     <!--resources start-->
     <UserControl.Resources>
         <cv:DateConverter x:Key="DateConverter"/>
-        <!--<vm:UserViewModel x:Key="VM"/>-->
+        <vm:UserViewModel x:Key="VM"/>
+        <!--<vm:ListViewViewModel x:Key="VM1"/>-->
+
         <Style x:Key="searchBoxBorder" TargetType="Border">
             <Setter Property="Margin" Value="0,0,0,10"/>
             <Setter Property="CornerRadius" Value="5"/>
@@ -24,6 +27,14 @@
             <Setter Property="Background" Value="white"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="Padding" Value="1.5"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="SkyBlue"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="SkyBlue"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style x:Key="searchTextbox" TargetType="{x:Type TextBox}">
             <Setter Property="BorderThickness" Value="0"/>
@@ -47,11 +58,11 @@
     </UserControl.Resources>
     <!--resources end-->
     <!--Grid start-->
-    <Grid >
+    <Grid>
         <!--StackPanel-->
         <StackPanel Margin="20" Background="#344955">
             <Border Style="{StaticResource searchBoxBorder}">
-                <TextBox  Style="{StaticResource searchTextbox}"                      
+                <TextBox  Style="{StaticResource searchTextbox}"                     
                          Text="{Binding Query,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
@@ -60,15 +71,18 @@
                     </i:Interaction.Triggers>
                 </TextBox>
             </Border>
+            <!--{Binding RelativeSource={RelativeSource Self}, Path=DataContext.MyCommand}-->
+            <!--DataContext="{StaticResource VM1}"-->
 
-            <ListView ItemsSource="{Binding Users,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
-                      Background="#344955" >
-                <ListView.View >
-                    <GridView>
-                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding Path=FirstName}"/>
-                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding Path=LastName}"/>
-                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Path=Gender}"/>
-                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding Path=DOB,Converter={StaticResource DateConverter}}"/>
+            <ListView ItemsSource="{Binding Users,Mode=TwoWay,
+                      UpdateSourceTrigger=PropertyChanged}" 
+                      Background="#344955">
+                <ListView.View>
+                    <GridView><!--AllowsColumnReorder="true" ColumnHeaderToolTip="Information on Missing Values"-->
+                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding Path=FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding Path=LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Path=Gender,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding Path=DOB,Converter={StaticResource DateConverter},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                     </GridView>
                 </ListView.View>
             </ListView>            
