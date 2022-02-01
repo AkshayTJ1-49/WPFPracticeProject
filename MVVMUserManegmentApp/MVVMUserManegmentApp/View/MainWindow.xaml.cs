@@ -24,7 +24,7 @@ namespace MVVMUserManegmentApp
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new UserViewModel();
+            //this.DataContext = new UserViewModel();
         }
     }
 }

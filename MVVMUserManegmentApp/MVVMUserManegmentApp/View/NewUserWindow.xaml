@@ -5,23 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMUserManegmentApp.View"
         xmlns:vm="clr-namespace:MVVMUserManegmentApp.ViewModel"
-        xmlns:c="clr-namespace:MVVMUserManegmentApp.Converter" xmlns:components="clr-namespace:MVVMUserManegmentApp.Components" d:DataContext="{d:DesignInstance Type=vm:UserViewModel}"
+        xmlns:c="clr-namespace:MVVMUserManegmentApp.Converter" 
+        xmlns:components="clr-namespace:MVVMUserManegmentApp.Components" 
         mc:Ignorable="d"
         Title="NewUserWindow" Height="400" Width="600">
-    
-    <Window.Resources>        
+    <!--d:DataContext="{d:DesignInstance Type=vm:UserViewModel}"-->
+
+    <Window.Resources>
         <!--<vm:UserViewModel x:Key="vm"/>-->
         <c:GenderCoverter x:Key="GenderCoverter"/>
         <c:DateConverter x:Key="DateConverter"/>
         <ControlTemplate x:Key="errorTemplate">
             <Border BorderBrush="Transparent" CornerRadius="5" BorderThickness="2">
                 <Grid>
-                    <AdornedElementPlaceholder/>                   
+                    <AdornedElementPlaceholder/>
                 </Grid>
             </Border>
         </ControlTemplate>
         <Style TargetType="Border" x:Key="txtBoxBorder">
-            <Setter Property="Margin" Value="5"/>            
+            <Setter Property="Margin" Value="5"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="Gainsboro"/>
             <Setter Property="CornerRadius" Value="5" />
@@ -41,14 +43,13 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Padding" Value="2,1,0,0"/>
-            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource errorTemplate}"/>  
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource errorTemplate}"/>
         </Style>
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="Foreground" Value="White"/>
-            <!--<Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Oswald"/>-->
         </Style>
         <Style TargetType="RadioButton">
             <Setter Property="Foreground" Value="white"/>
@@ -58,8 +59,8 @@
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Background" Value="#fe659e"/>
-            <Setter Property="Opacity" Value="0.5"/>            
-            <Style.Triggers>        
+            <Setter Property="Opacity" Value="0.5"/>
+            <Style.Triggers>
                 <Trigger Property="Button.IsEnabled" Value="True" >
                     <Setter Property="Background" Value="#FE6584"/>
                     <Setter Property="Foreground" Value="white"/>
@@ -75,8 +76,8 @@
         </Style>
     </Window.Resources>
 
-    <Grid  Background="#344955">    
-        
+    <Grid  Background="#344955">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
@@ -94,11 +95,11 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
+
         <Label Content="First name" Grid.Column="1" Grid.Row="0"/>
         <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource txtBoxBorder}" >
-            <TextBox Text="{Binding User.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" ToolTip="{Binding User.ErrorCollection[FirstName]}" /> 
-        </Border>            
+            <TextBox Text="{Binding User.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" ToolTip="{Binding User.ErrorCollection[FirstName]}" />
+        </Border>
         <Label Content="Last name" Grid.Row="1" Grid.Column="1"/>
         <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource txtBoxBorder}" >
             <TextBox  Text="{Binding User.LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" ToolTip="{Binding User.ErrorCollection[LastName]}" />
@@ -106,11 +107,10 @@
         <Label Content="Email" Grid.Row="2" Grid.Column="1"/>
         <Border Grid.Row="2" Grid.Column="2"  Style="{StaticResource txtBoxBorder}" >
             <TextBox Text="{Binding User.Email,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" ToolTip="{Binding User.ErrorCollection[Email]}" />
-        </Border>       
-        
+        </Border>
+
         <Label Content="Password" Grid.Row="3" Grid.Column="1"/>
         <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource txtBoxBorder}">
-
             <components:BindablePasswordBoxUserControl Validation.ErrorTemplate="{StaticResource errorTemplate}" Password="{Binding User.Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" ToolTip="{Binding User.ErrorCollection[Password]}"/>
         </Border>
 
@@ -119,16 +119,13 @@
             <DatePicker x:Name="dateOfBirth" BorderThickness="0" SelectedDate="{Binding User.DOB,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Border>
         <Label Content="Gender" Grid.Row="5" Grid.Column="1"/>
-        <RadioButton Grid.Row="5" Grid.Column="2" GroupName="gender" Content="Male" Margin="0,5,0,0" IsChecked="{Binding User.Gender,Converter={StaticResource ResourceKey=GenderCoverter},ConverterParameter=Male,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+        <RadioButton Grid.Row="5" Grid.Column="2" GroupName="gender" Content="Male" Margin="0,5,0,0" IsChecked="{Binding User.Gender,Converter={StaticResource ResourceKey=GenderCoverter},ConverterParameter=Male,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <RadioButton Grid.Row="6" Grid.Column="2" GroupName="gender" Content="Female" Margin="0,5,0,5" IsChecked="{Binding User.Gender,Converter={StaticResource ResourceKey=GenderCoverter},ConverterParameter=Female,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="Add User" Grid.Row="7" Grid.Column="2" Command="{Binding AddNewUserCommand,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                        <Border Height="25" 
-                                CornerRadius="10" 
-                                Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" 
-                                          VerticalAlignment="Center"/>
+                    <Border Height="25" CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Button.Template>

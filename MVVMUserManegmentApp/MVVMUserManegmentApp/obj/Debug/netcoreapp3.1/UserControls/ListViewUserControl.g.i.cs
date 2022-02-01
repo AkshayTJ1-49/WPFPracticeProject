@@ -60,7 +60,7 @@ namespace MVVMUserManegmentApp.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MVVMUserManegmentApp;component/usercontrols/listviewusercontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MVVMUserManegmentApp;V1.0.0.0;component/usercontrols/listviewusercontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\ListViewUserControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -35,7 +35,7 @@ namespace MVVMUserManegmentApp.ViewModel
         public ObservableCollection<User> Users
         {
              get { return users; }
-             set { users = value; OnPropertyChanged(nameof(Users)); }
+             set { users = value;OnPropertyChanged(nameof(Users));  }
         }
 
         public UserViewModel()
@@ -47,6 +47,8 @@ namespace MVVMUserManegmentApp.ViewModel
             AddNewUserCommand = new AddNewUserCommand(this);
             SearchCommand = new SearchCommand(this);
         }
+       
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string property)
         {

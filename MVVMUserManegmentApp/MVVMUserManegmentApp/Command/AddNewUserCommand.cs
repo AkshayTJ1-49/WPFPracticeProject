@@ -27,10 +27,11 @@ namespace MVVMUserManegmentApp.Command
         public AddNewUserCommand(UserViewModel vm)
         {
             VM = vm;
+         // vm.User.Gender
         }
         public bool CanExecute(object parameter)
         {       
-            if (string.IsNullOrWhiteSpace(VM.User.FirstName)||string.IsNullOrWhiteSpace(VM.User.LastName) || string.IsNullOrWhiteSpace(VM.User.Email)|| string.IsNullOrEmpty(VM.User.Password)|| string.IsNullOrWhiteSpace(VM.User.Gender))
+            if (string.IsNullOrWhiteSpace(VM.User.FirstName)||string.IsNullOrWhiteSpace(VM.User.LastName) || string.IsNullOrWhiteSpace(VM.User.Email)|| string.IsNullOrEmpty(VM.User.Password)|| string.IsNullOrEmpty(VM.User.Gender))
             {
                 return false;
             }            
@@ -50,6 +51,7 @@ namespace MVVMUserManegmentApp.Command
                 DOB = VM.User.DOB,
                 Gender = VM.User.Gender
             };
+
             UserManegmentHelper.AddNewUser(user);      
 
         }

@@ -10,14 +10,11 @@
         xmlns:prism="http://prismlibrary.com"
         mc:Ignorable="d"
         Title="Home"
-        Height="600" Width="450" ><!--Style="{StaticResource Home}"-->
+        Height="600" Width="450" >
     <!--resources start-->
-    <!--xmlns:uc="clr-namespace:MVVMUserManegmentApp.UserControls"-->
-
-
     <Window.Resources>
         <vm:UserViewModel x:Key="vm"/>
-        <cv:DateConverter x:Key="DateConverter"/>      
+        <cv:DateConverter x:Key="DateConverter"/>
         <Style TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
@@ -25,54 +22,31 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
-            
-            <!--<Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Dosis"/>-->
-            
+            <Setter Property="Background" Value="#FE6584"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="LightGray"></Setter>
+                    <Setter Property="Foreground" Value="LightGray"/>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Foreground" Value="DarkSlateGray"></Setter>
-                </Trigger>                
+                    <Setter Property="Foreground" Value="DarkSlateGray"/>
+                </Trigger>
             </Style.Triggers>
         </Style>
-       
     </Window.Resources>
-    <!--resources end  Background="#344955"  DataContext="{StaticResource vm}"-->
-
-    <Grid   Background="#344955">
-      
-        <StackPanel Margin="20,40,20,0">        
-            <Button Content="AddUser" 
-                        Command="{Binding OpenAddUserWindowCommand}"                       
-                        Background="#FE6584" FontFamily="/Fonts/#Oswald-VariableFont_wght">
-            <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="100" 
-                                    Height="25" 
-                                    CornerRadius="10"
-                                    Margin="0,0,0,10"
-                                    Background="{TemplateBinding Background}">
-                             <ContentPresenter HorizontalAlignment="Center" 
-                                               VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+    
+    <Grid Background="#344955">
+        <StackPanel Margin="20,40,20,0">
+            <Button Content="AddUser" DataContext="{StaticResource vm}" Command="{Binding OpenAddUserWindowCommand}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" Height="25" CornerRadius="10" Margin="0,0,0,10" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
-            <local:ListViewUserControl/>
 
-            <!--<ListView ItemsSource="{Binding Users}" 
-                      Background="#344955" >
-                <ListView.View >
-                    <GridView>
-                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
-                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
-                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}"/>
-                        <GridViewColumn Header="DOB" DisplayMemberBinding="{Binding DOB,Converter={StaticResource DateConverter}}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>-->
+            <local:ListViewUserControl DataContext="{StaticResource vm}"/>
         </StackPanel>
     </Grid>
 </Window>

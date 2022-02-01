@@ -61,7 +61,8 @@ namespace MVVMUserManegmentApp.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MVVMUserManegmentApp;component/components/bindablepasswordboxusercontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MVVMUserManegmentApp;V1.0.0.0;component/components/bindablepasswordboxusercontro" +
+                    "l.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\BindablePasswordBoxUserControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
